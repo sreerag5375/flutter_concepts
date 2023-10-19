@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_concepts/screen_login.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_concepts/screen_spash.dart';
 
-void main() async {
+const SAVE_KEY_NAME = 'userLoggedIn';
+
+void main() {
   runApp(const MyApp());
 }
 
@@ -12,11 +13,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.green),
-      title: 'Whatsapp Home Screen',
-      home:  LoginScreen(),
+      title: 'simple login page',
+      theme: ThemeData(primarySwatch: Colors.purple),
+      home: const SplashScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
-
- 
 }
