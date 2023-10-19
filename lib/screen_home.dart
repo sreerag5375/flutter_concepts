@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_concepts/bottom_navigation.dart';
 import 'package:flutter_concepts/bottomsheet.dart';
 import 'package:flutter_concepts/screen_login.dart';
 import 'package:flutter_concepts/value_notifier.dart';
@@ -24,12 +25,23 @@ class HomeScreen extends StatelessWidget {
           children: [
             SizedBox(
               height: 50,
-              child: buttons(screen: ScreenValueNotifier(),text: 'ValueNotifier'),
+              child:
+                  buttons(screen: ScreenValueNotifier(), text: 'ValueNotifier'),
             ),
-            const SizedBox(height: 16,),
+            const SizedBox(
+              height: 16,
+            ),
             const SizedBox(
               height: 50,
-              child: buttons(screen: ScreenBottomSheet(),text: 'BottomSheet'),
+              child: buttons(screen: ScreenBottomSheet(), text: 'BottomSheet'),
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+             SizedBox(
+              height: 50,
+              child: buttons(
+                  screen: ScreenBottomNavigation(), text: 'Bottom Navigation'),
             )
           ],
         ),

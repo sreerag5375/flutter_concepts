@@ -21,8 +21,13 @@ class ScreenBottomSheet extends StatelessWidget {
       context: context,
       builder: (context) => Container(
         height: 200,
-        color: Colors.blueGrey,
+        color: const Color.fromARGB(255, 226, 168, 236),
         width: double.infinity,
+        child: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: const Icon(Icons.close)),
       ),
     );
   }
