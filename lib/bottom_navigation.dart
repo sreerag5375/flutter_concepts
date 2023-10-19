@@ -27,6 +27,7 @@ class _ScreenBottomNavigationState extends State<ScreenBottomNavigation> {
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: _currentIndex,
+          selectedItemColor: Colors.deepPurple,
           onTap: (value) => setState(() {
                 _currentIndex = value;
               }),
