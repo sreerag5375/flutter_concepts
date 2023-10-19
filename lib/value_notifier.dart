@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class ScreenValueNotifier extends StatelessWidget {
   final _counter = ValueNotifier(0);
 
+  ScreenValueNotifier({super.key});
+
   void _incrementCounter() {
     _counter.value++;
   }
@@ -22,12 +24,12 @@ class ScreenValueNotifier extends StatelessWidget {
                 builder: (context, value, _) {
                   return Text(
                     '$value',
-                    style: TextStyle(fontSize: 24),
+                    style: const TextStyle(fontSize: 24),
                   );
                 }),
             ElevatedButton(
               onPressed: _incrementCounter,
-              child: Text('increment'),
+              child: const Text('increment'),
             ),
           ],
         ),

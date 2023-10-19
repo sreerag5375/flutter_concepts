@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_concepts/bottomsheet.dart';
 import 'package:flutter_concepts/screen_login.dart';
 import 'package:flutter_concepts/value_notifier.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -18,17 +19,17 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 10,right: 10,top: 20),
+        padding: const EdgeInsets.only(left: 10, right: 10, top: 20),
         child: ListView(
           children: [
             SizedBox(
               height: 50,
-              child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) =>  ScreenValueNotifier()));
-                  },
-                  child: const Text('ValueNotifier',style: TextStyle(fontSize: 20),)),
+              child: buttons(screen: ScreenValueNotifier(),text: 'ValueNotifier'),
+            ),
+            const SizedBox(height: 16,),
+            const SizedBox(
+              height: 50,
+              child: buttons(screen: ScreenBottomSheet(),text: 'BottomSheet'),
             )
           ],
         ),
@@ -47,5 +48,28 @@ class HomeScreen extends StatelessWidget {
           builder: (context) => LoginScreen(),
         ),
         (route) => false);
+  }
+}
+
+class buttons extends StatelessWidget {
+  final Widget screen;
+  final String text;
+  const buttons({
+    super.key,
+    required this.screen,
+    required this.text,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        onPressed: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => screen));
+        },
+        child: Text(
+          text,
+          style: const TextStyle(fontSize: 20),
+        ));
   }
 }
