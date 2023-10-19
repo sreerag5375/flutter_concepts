@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_concepts/screen_login.dart';
+import 'package:flutter_concepts/value_notifier.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -9,19 +10,35 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('home page'),
+        title: const Text('FLutter Topics'),
         actions: [
           IconButton(
               onPressed: () => signOut(context),
               icon: const Icon(Icons.exit_to_app))
         ],
       ),
+      body: Padding(
+        padding: const EdgeInsets.only(left: 10,right: 10,top: 20),
+        child: ListView(
+          children: [
+            SizedBox(
+              height: 50,
+              child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) =>  ScreenValueNotifier()));
+                  },
+                  child: const Text('ValueNotifier',style: TextStyle(fontSize: 20),)),
+            )
+          ],
+        ),
+      ),
     );
   }
 
-    // When the user taps the "Sign Out" button  we perform 
-    // the action of clearing the user's stored data in
-    // SharedPreferences, effectively logging them out and navigate to login screen
+  // When the user taps the "Sign Out" button  we perform
+  // the action of clearing the user's stored data in
+  // SharedPreferences, effectively logging them out and navigate to login screen
   void signOut(BuildContext ctx) async {
     final _sharedPref = await SharedPreferences.getInstance();
     _sharedPref.setBool('SAVE_KEY_NAME', false);
