@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_concepts/bottom_navigation.dart';
 import 'package:flutter_concepts/bottomsheet.dart';
 import 'package:flutter_concepts/dropdown.dart';
+import 'package:flutter_concepts/employee_details/screens/employee_main.dart';
+import 'package:flutter_concepts/hive_db/screen/hive_main.dart';
 import 'package:flutter_concepts/screen_login.dart';
 import 'package:flutter_concepts/value_notifier.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -50,7 +52,22 @@ class HomeScreen extends StatelessWidget {
             SizedBox(
               height: 50,
               child: buttons(screen: ScreenDropDown(), text: 'Dropdown'),
-            )
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            const SizedBox(
+              height: 50,
+              child: buttons(screen: ScreenHiveMain(), text: 'Hive database'),
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            const SizedBox(
+              height: 50,
+              child: buttons(
+                  screen: EmployeeHomeScreen(), text: 'Employee Details(Hive)'),
+            ),
           ],
         ),
       ),
